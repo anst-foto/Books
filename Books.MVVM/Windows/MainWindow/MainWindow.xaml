@@ -19,16 +19,18 @@
                   SelectedItem="{Binding SelectedBook}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Title}"/>
-                    <GridViewColumn Header="Автор" DisplayMemberBinding="{Binding Author}"/>
+                    <GridViewColumn Header="Название" 
+                                    DisplayMemberBinding="{Binding Title}"/>
+                    <GridViewColumn Header="Автор" 
+                                    DisplayMemberBinding="{Binding Author}"/>
                 </GridView>
             </ListView.View>
         </ListView>
         
         <StackPanel Grid.Column="1">
-            <StackPanel DataContext="{Binding SelectedBook}">
-                <component:InputComponent Label="Название" Input="{Binding Title}"/>
-                <component:InputComponent Label="Автор" Input="{Binding Author}"/>
+            <StackPanel DataContext="{Binding Path=SelectedBook}" HorizontalAlignment="Left">
+                <component:InputComponent Label="Название" Input="{Binding Path=Title, Mode=TwoWay}" Width="300"/>
+                <component:InputComponent Label="Автор" Input="{Binding Path=Author, Mode=TwoWay}"/>
             </StackPanel>
         </StackPanel>
     </Grid>
